@@ -144,6 +144,7 @@
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.SubTotalLabel);
             this.Name = "InvoiceTotalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Invoice Total";
             this.ResumeLayout(false);
             this.PerformLayout();

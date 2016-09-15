@@ -25,6 +25,15 @@ namespace COMP1004_F2016_Lesson2
         /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+            CalculateTotal();
+        }
+
+        /// <summary>
+        /// This method calculates the total based by multiplying the 
+        /// Subtotal by the DiscountPercent and then subtracting this value.
+        /// </summary>
+        private void CalculateTotal()
+        {
             // Local Variables
             const double DiscountPercent = 0.1;
             double SubTotal;
@@ -43,17 +52,27 @@ namespace COMP1004_F2016_Lesson2
             catch (Exception exception)
             {
 
-                MessageBox.Show("Invalid Data Entered","Input Error");
+                MessageBox.Show("Invalid Data Entered", "Input Error");
                 Debug.WriteLine(exception.Message);
-                SubTotalTextBox.Focus();
-                SubTotalTextBox.SelectAll();
+                ResetSubTotalTextBox();
             }
-
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void InvoiceTotalForm_Load(object sender, EventArgs e)
+        {
+            ResetSubTotalTextBox();
+        }
+
+        private void ResetSubTotalTextBox()
+        {
+            SubTotalTextBox.Focus();
+            SubTotalTextBox.Text = "0";
+            SubTotalTextBox.SelectAll();
         }
     }
 }
